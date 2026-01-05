@@ -33,6 +33,7 @@ import { getGeminiModels } from "./gemini"
 import { getInceptionModels } from "./inception"
 import { getSyntheticModels } from "./synthetic"
 import { getSapAiCoreModels } from "./sap-ai-core"
+import { getMentorAiModels } from "./mentor-ai"
 // kilocode_change end
 
 import { getDeepInfraModels } from "./deepinfra"
@@ -172,6 +173,9 @@ async function fetchModelsFromProvider(options: GetModelsOptions): Promise<Model
 				nanoGptModelList: options.nanoGptModelList,
 				apiKey: options.apiKey,
 			})
+			break
+		case "mentor-ai":
+			models = await getMentorAiModels(options.apiKey || "", options.baseUrl || "", options.mentorAiOrgId || "")
 			break
 		//kilocode_change end
 		default: {

@@ -868,6 +868,7 @@ export const webviewMessageHandler = async (
 						"sap-ai-core": {}, // kilocode_change
 						chutes: {},
 						"nano-gpt": {}, // kilocode_change
+						"mentor-ai": {}, // kilocode_change
 					}
 
 			const safeGetModels = async (options: GetModelsOptions): Promise<ModelRecord> => {
@@ -969,6 +970,15 @@ export const webviewMessageHandler = async (
 				{
 					key: "chutes",
 					options: { provider: "chutes", apiKey: apiConfiguration.chutesApiKey },
+				},
+				{
+					key: "mentor-ai",
+					options: {
+						provider: "mentor-ai",
+						apiKey: apiConfiguration.mentorAiApiKey,
+						baseUrl: apiConfiguration.mentorAiBaseUrl,
+						mentorAiOrgId: apiConfiguration.mentorAiOrgId,
+					},
 				},
 			]
 			// kilocode_change end

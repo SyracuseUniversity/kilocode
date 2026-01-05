@@ -285,6 +285,8 @@ export const SECRET_STATE_KEYS = [
 	"syntheticApiKey",
 	"ovhCloudAiEndpointsApiKey",
 	"inceptionLabsApiKey",
+	"mentorAiApiKey",
+	"mentorAiToken",
 	// kilocode_change end
 	"codebaseIndexOpenAiCompatibleApiKey",
 	"codebaseIndexGeminiApiKey",

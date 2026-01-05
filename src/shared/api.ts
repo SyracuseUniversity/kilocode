@@ -210,6 +210,12 @@ const dynamicProviderExtras = {
 		sapAiCoreResourceGroup?: string
 		sapAiCoreUseOrchestration?: boolean
 	},
+	"mentor-ai": {} as {
+		apiKey?: string
+		baseUrl?: string
+		mentorAiOrgId?: string
+		mentorAiToken?: string
+	}, // kilocode_change
 	// kilocode_change end
 } as const satisfies Record<RouterName, object>
 

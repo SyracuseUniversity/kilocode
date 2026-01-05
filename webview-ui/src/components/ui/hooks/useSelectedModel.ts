@@ -514,6 +514,18 @@ function getSelectedModel({
 			const info = routerModels.inception[id]
 			return { id, info }
 		}
+		case "mentor-ai": {
+			const id = apiConfiguration.apiModelId ?? "default-mentor"
+			return {
+				id,
+				info: {
+					maxTokens: 16000,
+					contextWindow: 16000,
+					supportsImages: false,
+					supportsPromptCache: false,
+				},
+			}
+		}
 		case "sap-ai-core": {
 			const id = apiConfiguration.sapAiCoreModelId ?? "gpt-5"
 			const info = {

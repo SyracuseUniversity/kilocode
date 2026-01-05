@@ -55,6 +55,7 @@ export const dynamicProviders = [
 	"inception",
 	"synthetic",
 	"sap-ai-core",
+	"mentor-ai",
 	// kilocode_change end
 	"deepinfra",
 	"io-intelligence",
@@ -157,6 +158,7 @@ export const providerNames = [
 	"virtual-quota-fallback",
 	"synthetic",
 	"inception",
+	"mentor-ai",
 	// kilocode_change end
 	"sambanova",
 	"vertex",
@@ -340,6 +342,13 @@ const geminiSchema = apiModelIdProviderModelSchema.extend({
 const geminiCliSchema = apiModelIdProviderModelSchema.extend({
 	geminiCliOAuthPath: z.string().optional(),
 	geminiCliProjectId: z.string().optional(),
+})
+
+const mentorAiSchema = apiModelIdProviderModelSchema.extend({
+	mentorAiApiKey: z.string().optional(),
+	mentorAiBaseUrl: z.string().optional(),
+	mentorAiOrgId: z.string().optional(),
+	mentorAiToken: z.string().optional(),
 })
 // kilocode_change end
 
@@ -572,6 +581,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	virtualQuotaFallbackSchema.merge(z.object({ apiProvider: z.literal("virtual-quota-fallback") })),
 	syntheticSchema.merge(z.object({ apiProvider: z.literal("synthetic") })),
 	inceptionSchema.merge(z.object({ apiProvider: z.literal("inception") })),
+	mentorAiSchema.merge(z.object({ apiProvider: z.literal("mentor-ai") })),
 	// kilocode_change end
 	groqSchema.merge(z.object({ apiProvider: z.literal("groq") })),
 	basetenSchema.merge(z.object({ apiProvider: z.literal("baseten") })),
@@ -612,6 +622,7 @@ export const providerSettingsSchema = z.object({
 	...syntheticSchema.shape,
 	...ovhcloudSchema.shape,
 	...inceptionSchema.shape,
+	...mentorAiSchema.shape,
 	// kilocode_change end
 	...openAiNativeSchema.shape,
 	...mistralSchema.shape,
@@ -726,6 +737,7 @@ export const modelIdKeysByProvider: Record<TypicalProvider, ModelIdKey> = {
 	ovhcloud: "ovhCloudAiEndpointsModelId",
 	inception: "inceptionLabsModelId",
 	"sap-ai-core": "sapAiCoreModelId",
+	"mentor-ai": "apiModelId",
 	// kilocode_change end
 	groq: "apiModelId",
 	baseten: "apiModelId",
@@ -884,6 +896,7 @@ export const MODELS_BY_PROVIDER: Record<
 	// kilocode_change start
 	ovhcloud: { id: "ovhcloud", label: "OVHcloud AI Endpoints", models: [] },
 	inception: { id: "inception", label: "Inception", models: [] },
+	"mentor-ai": { id: "mentor-ai", label: "IBL Mentor AI", models: [] },
 	kilocode: { id: "kilocode", label: "Kilocode", models: [] },
 	"virtual-quota-fallback": { id: "virtual-quota-fallback", label: "Virtual Quota Fallback", models: [] },
 	// kilocode_change end

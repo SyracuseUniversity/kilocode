@@ -51,6 +51,7 @@ import {
 	DeepInfraHandler,
 	MiniMaxHandler,
 	BasetenHandler,
+	MentorAiHandler,
 } from "./providers"
 // kilocode_change start
 import { KilocodeOpenrouterHandler } from "./providers/kilocode-openrouter"
@@ -227,6 +228,8 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 			return new SyntheticHandler(options)
 		case "inception":
 			return new InceptionLabsHandler(options)
+		case "mentor-ai":
+			return new MentorAiHandler(options)
 		case "ovhcloud":
 			return new OVHcloudAIEndpointsHandler(options)
 		case "sap-ai-core":

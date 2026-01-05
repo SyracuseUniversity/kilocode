@@ -16,6 +16,7 @@ export * from "./synthetic.js"
 export * from "./inception.js"
 export * from "./minimax.js"
 export * from "./glama.js"
+export * from "./mentor-ai.js"
 // kilocode_change end
 export * from "./groq.js"
 export * from "./huggingface.js"
@@ -71,6 +72,7 @@ import { vercelAiGatewayDefaultModelId } from "./vercel-ai-gateway.js"
 import { internationalZAiDefaultModelId, mainlandZAiDefaultModelId } from "./zai.js"
 import { deepInfraDefaultModelId } from "./deepinfra.js"
 import { minimaxDefaultModelId } from "./minimax.js"
+import { mentorAiDefaultModelId } from "./mentor-ai.js"
 
 // Import the ProviderName type from provider-settings to avoid duplication
 import type { ProviderName } from "../provider-settings.js"
@@ -92,6 +94,8 @@ export function getProviderDefaultModelId(
 		// kilocode_change start
 		case "glama":
 			return glamaDefaultModelId
+		case "mentor-ai":
+			return mentorAiDefaultModelId
 		// kilocode_change end
 		case "unbound":
 			return unboundDefaultModelId

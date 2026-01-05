@@ -41,6 +41,7 @@ describe("getModelsByProvider", () => {
 		"sap-ai-core": { "test-model": testModel },
 		synthetic: { "test-model": testModel },
 		inception: { "test-model": testModel },
+		"mentor-ai": { "test-model": testModel },
 		roo: { "test-model": testModel },
 	}
 

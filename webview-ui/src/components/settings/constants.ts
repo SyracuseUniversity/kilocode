@@ -70,6 +70,7 @@ export const PROVIDERS = [
 	{ value: "synthetic", label: "Synthetic" },
 	{ value: "ovhcloud", label: "OVHcloud AI Endpoints" },
 	{ value: "sap-ai-core", label: "SAP AI Core" },
+	{ value: "mentor-ai", label: "IBL Mentor AI" },
 	// kilocode_change end
 	{ value: "deepseek", label: "DeepSeek" },
 	{ value: "moonshot", label: "Moonshot" },

@@ -121,6 +121,7 @@ import {
 	VercelAiGateway,
 	DeepInfra,
 	MiniMax,
+	MentorAi,
 } from "./providers"
 
 import { MODELS_BY_PROVIDER, PROVIDERS } from "./constants"
@@ -285,6 +286,7 @@ const ApiOptions = ({
 				selectedProvider === "deepinfra" ||
 				selectedProvider === "chutes" || // kilocode_change
 				selectedProvider === "synthetic" || // kilocode_change
+				selectedProvider === "mentor-ai" || // kilocode_change
 				selectedProvider === "roo"
 			) {
 				vscode.postMessage({ type: "requestRouterModels" })
@@ -304,6 +306,7 @@ const ApiOptions = ({
 			apiConfiguration?.deepInfraBaseUrl,
 			apiConfiguration?.chutesApiKey, // kilocode_change
 			apiConfiguration?.ovhCloudAiEndpointsBaseUrl, // kilocode_change
+			apiConfiguration?.mentorAiOrgId,
 			customHeaders,
 		],
 	)
@@ -786,6 +789,16 @@ const ApiOptions = ({
 
 			{selectedProvider === "minimax" && (
 				<MiniMax apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
+			)}
+
+			{selectedProvider === "mentor-ai" && (
+				<MentorAi
+					apiConfiguration={apiConfiguration}
+					setApiConfigurationField={setApiConfigurationField}
+					routerModels={routerModels}
+					organizationAllowList={organizationAllowList}
+					modelValidationError={modelValidationError}
+				/>
 			)}
 
 			{/* kilocode_change start */}
