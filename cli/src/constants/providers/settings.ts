@@ -666,6 +666,13 @@ export const FIELD_REGISTRY: Record<string, FieldMetadata> = {
 		type: "text",
 		placeholder: "Enter profiles configuration...",
 	},
+
+	// Mentor AI fields
+	mentorAiApiKey: {
+		label: "API Key",
+		type: "password",
+		placeholder: "Enter Mentor AI API key...",
+	},
 }
 
 /**
@@ -736,7 +743,11 @@ export const isOptionalField = (field: string): boolean => {
  * @param defaultValue - Default value to display when field is empty
  * @returns ProviderSettingConfig object
  */
-const createFieldConfig = (field: string, config: ProviderSettings, defaultValue?: string): ProviderSettingConfig => {
+export const createFieldConfig = (
+	field: string,
+	config: ProviderSettings,
+	defaultValue?: string,
+): ProviderSettingConfig => {
 	const fieldInfo = getFieldInfo(field)
 	const rawValue = config[field as keyof ProviderSettings]
 	const actualValue = rawValue ?? ""
@@ -1096,6 +1107,7 @@ export const PROVIDER_DEFAULT_MODELS: Record<ProviderName, string> = {
 	synthetic: "synthetic-model",
 	"sap-ai-core": "gpt-4o",
 	baseten: "zai-org/GLM-4.6",
+	"mentor-ai": "mentor-ai-code-teacher",
 }
 
 /**
